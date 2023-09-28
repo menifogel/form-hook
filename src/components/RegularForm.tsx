@@ -20,7 +20,7 @@ function RegularForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-        <h1>Change Me To React Hook Form</h1>
+        <h1> React Hook Form</h1>
       <div>
       <input 
           type="text"
@@ -29,27 +29,25 @@ function RegularForm() {
            {value: 2,
            message: "username is requird"} })} />
       </div>
+      <p>{errors.username ?.message}</p>
       <div>
         <input
+          placeholder="email"
           {...register("email", {required: "the email is requarid", pattern: 
           {value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
           message: "email pettern is not invalid"}
-
- })}
-        />
+ })} />
       </div>
+      <p>{errors.email ?.message}</p>
       <div>
         <input
-        {...register("password", {required: "password is required",
-         pattern:
+          placeholder="password"
+          {...register("password", {required: "password is required",
+          pattern:
           {value:  /^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[@#$%^&+=!])(?!.*\s).{8,20}$/,
           message: "password not invalid"}
-    })}
-        />
+    })}/>
       </div>
-      
-      <p>{errors.username ?.message}</p>
-      <p>{errors.email ?.message}</p>
       <p>{errors.password ?.message}</p>
       <button type="submit">Submit</button>
     </form>
